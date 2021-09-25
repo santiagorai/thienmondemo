@@ -1,8 +1,8 @@
-# Novel-Static
-小说静态网站，数据可访问，大部分页面都有，配合后端接口可快速搭建网站
+# Tiểu thuyết-Tĩnh
 
-## 本项目为最早之前JS期末作业，接口为自己搭建的JSONP服务，书籍数据都为真实，可更改对接接口
+Trang web tĩnh mới lạ, dữ liệu có thể được truy cập, hầu hết các trang đều có sẵn và trang web có thể được xây dựng nhanh chóng với giao diện back-end
 
+## Dự án này là bài tập cuối cùng của JS trước đó sớm nhất. Giao diện là dịch vụ JSONP do chính tôi xây dựng. Dữ liệu sách là có thật và có thể thay đổi giao diện gắn kết
 
 ![](./doc/01.jpg)
 ![](./doc/02.jpg)
