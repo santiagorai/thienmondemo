@@ -4,6 +4,7 @@ Trang web tĩnh mới lạ, dữ liệu có thể được truy cập, hầu h�
 
 ## Dự án này là bài tập cuối cùng của JS trước đó sớm nhất. Giao diện là dịch vụ JSONP do chính tôi xây dựng. Dữ liệu sách là có thật và có thể thay đổi giao diện gắn kết
 
+Hieudz
 ![](./doc/01.jpg)
 ![](./doc/02.jpg)
 ![](./doc/03.jpg)
