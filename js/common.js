@@ -1,9 +1,10 @@
 // Sử dụng proxy JSON được xây dựng
-const URLPROXY = "https://jsonp.dllca.cn/?url=";
+const URLPROXY = "https://cors-anywhere.herokuapp.com/";
 
 // Mã Hóa Url
 const encode = function (url) {
-  return encodeURIComponent(url);
+ // return encodeURIComponent(url);
+	return url;
 };
 
 /* Di Chuyển Chuột Để Hiển Thị Menu */
