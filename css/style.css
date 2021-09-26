@@ -1370,3 +1370,16 @@
 	box-shadow: 1px 2px 3px #ccc;
 	cursor: pointer;
 }
+
+.ranking .rank_list ul > li:first-child > span {
+	background: red;
+  }
+  .ranking .rank_list ul {
+	margin-top: 15px;
+  }
+  .ranking .rank_list {
+	width: 31%;
+  }
+  .ranking .rank_list .rank_bookname {
+	float: left;
+  }

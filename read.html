@@ -128,7 +128,7 @@
 		var cid = getUrlParam('cid');
 		if (bid && cid) {
 			$('.mask').css('display','block');
-			$.get(`${URLPROXY}http%3A%2F%2Fadmin.iqingtun.com%2Fweb%2Fcontent%2Findex%3Fc_id%3D${cid}%26b_id%3D${bid}`,(data)=>{
+			$.get(`${URLPROXY}http://admin.iqingtun.com/web/content/index?c_id=${cid}&b_id=${bid}`,(data)=>{
 				console.log(data);
 				$('.read-main .read-head h2').text(data['data'].b_title);
 				$('.read-main .read-head .chap-num').text(data['data'].sort);
