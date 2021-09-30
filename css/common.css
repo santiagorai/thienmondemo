@@ -90,7 +90,7 @@ body > header{
 	width: 30%;
 	margin-top: 30px;
 	display: inline-block;
-	margin-right: 15%;
+	margin-right: 5%;
 }
 
 .search-wrap form{
@@ -169,8 +169,8 @@ body > header{
 
 .user-avatar{
 	display: none;
- 	height: 40px;
-	width: 40px;
+ 	height: 30px;
+	width: 30px;
 	float: right;
 	border-radius: 50%;
 	overflow: hidden;
