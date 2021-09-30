@@ -1,5 +1,5 @@
 
-/* banner轮播图 */
+/* bannerslide */
 .banner{
 	width: 100%;
 	background: #fff;
@@ -74,7 +74,7 @@
 	border-bottom: 1px solid #000;
 }
 
-/* 热门推荐 */
+/* Đề Xuất Phổ Biến */
 .host-block{
 	border-radius: 10px;
 	margin-bottom: 20px;
@@ -203,7 +203,7 @@
 	color:var(--main-color,#008c8c);
 }
 
-/* 限时免费 */
+/* Miễn Phí Trong Thời Gian Hạn Chế */
 .free-time{
 	background: #fff;
 	border-radius: 10px;
@@ -304,7 +304,7 @@
 	background: var(--main-color);
 }
 
-/*排行榜*/
+/*Bảng Xếp Hạng*/
 .ranking{
 	background: #fff;
 	border-radius: 10px;
@@ -436,7 +436,7 @@
     line-height: 20px;
 }
 
-/* 更新栏目 */
+/* Cập Nhật Cột */
 .updates{
 	background: #fff;
 	border-radius: 10px;
@@ -511,7 +511,7 @@
     padding-bottom: 2px;
 }
 
-/* 横条栏 */
+/* Quảng Cáo */
 .ad{
 	width: 100%;
 	margin-bottom: 20px;
@@ -522,7 +522,7 @@
 	width: 100%;
 }
 
-/* 免费小说 */
+/* Truyện Miễn Phí */
 
 .container .free-book{
 	border-radius: 10px;
@@ -608,7 +608,7 @@
 	color: blue;
 }
 
-/* 小说详情页 */
+/* Trang Chi Tiết Truyện */
 .container .process{
 	margin-bottom: 20px;
 	font-size: .8em;
@@ -765,7 +765,7 @@
 	color: #1588f4;
 }
 
-/* 阅读页面 */
+/* Trang Đọc */
 
 .read-main{
 	margin-bottom: 10px;
@@ -869,7 +869,7 @@
 }*/
 
 /* 
-	完本，分类页面 
+	Danh Mục ，Trang Hoàn Thành 
 */
 
 .books-classify{
@@ -922,7 +922,7 @@
 .books-classify .tags span:not([class="active"]):hover{
 	color:var(--main-color);
 }*/
-/*排序列表*/
+/*Danh Sách Đã Sắp Xếp*/
 .books-block{
 	padding:30px 30px 10px;
 	margin-bottom: 50px;
@@ -1031,7 +1031,7 @@
 }
 
 /*
-	多行文本显示省略号参考
+	Tham Chiếu Dấu Lững Với Nhiều Dòng
 	http://www.daqianduan.com/6179.html
  */
 .books-block .books-list p.intro{
@@ -1045,7 +1045,7 @@
 }
 
 /**
- * 关于我们
+ * Thông Tin Về Web
  */
 
 .about{
@@ -1107,7 +1107,7 @@
 }
 
 /*
-	用户中心
+	Trung Tâm Người Dùng
  */
 .user-left{
 	width: 25%;
@@ -1277,7 +1277,7 @@
 	color: #318ee9;
 }
 
-/* 我的书架 */
+/* Truyện Theo Dõi */
 .user-right h3>span{
 	font-size: 20px;
 	font-weight: bold;
