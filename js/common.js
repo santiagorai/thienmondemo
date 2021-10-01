@@ -178,21 +178,77 @@ $.get(
  	参考 https://blog.csdn.net/suyu_happy/article/details/78643005
  */
 function getUrlParam(name) {
-  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-  var r = window.location.search.substr(1).match(reg); //匹配目标参数
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //Xây dựng một đối tượng biểu thức chính quy với các tham số đích 
+  var r = window.location.search.substr(1).match(reg); //Khớp các thông số mục tiêu 
   if (r != null) return decodeURI(r[2]);
-  return null; //返回参数值
+  return null; //Giá trị tham số trả về 
 }
 
-// 蒙版显示隐藏
+// Hiển Thị Lớp Phủ
 function setMask(state = "block") {
   $(".mask").css("display", state);
 }
 
-// 点击搜索按钮
+// Bám Vào Nút Tìm Kiếm
 $("#search-btn").click(function () {
   window.open("./bookAll.html?search=" + $("#search-input").val(), "_self");
 });
 
+var book_id = getUrlParam('bookid');
+	$('.bookName').attr('href',"catalog.html?bookid="+book_id);
+	if (book_id != null) {
+		// Nhận Thông Tin Truyện
+		setMask()
+		$.get(`${URLPROXY}http://admin.iqingtun.com/web/book/index?id=${book_id}&u_id=`,(data)=>{
+			console.log(data);
+			var content = data['data'].chapter_content
+			$('.book-img img').attr('src','http://'+data['data'].front_cover);
+			$('.book-info p.intro').text(content.replace(/(<\w>|<\/\w>)/g,''));
+			$('.book-info h3').text(data['data'].title);
+			$('.book-info p.book-author').text(data['data'].u_name);
+			$('.book-info span.state').text(data['data'].update_status)
+			$('.book-info span.class').text(data['data'].c_title)
+			$('.book-info .book-mess span.number').text(data['data'].char_num)
+			$('.book-info .book-mess span.hits').text(data['data'].hits)
+			$('.process a.className').text(data['data'].c_title)
+			$('.process a.bookName').text(data['data'].title)
+			$('.book-info .btn a.read-btn').text(data['data'].is_vip == 0 ? 'Đọc Miễn Phí' :'Chỉ Đọc Vip').attr('data-vip',data['data'].is_vip)
+			$('.catalog-list .uprocess').text(data['data'].chapter_title + "  "+ data['data'].last_update_chapter_time).attr('href',`./read.html?bid=${book_id}&cid=${data['data'].last_update_chapter_id}`)
+		});
+
+		// Cập Nhật Danh Mục
+		$.get(`${URLPROXY}http://admin.iqingtun.com/web/book/directory?id=${book_id}&order=0`,(data)=>{
+			var chapters = data.data.volume[0].chapter;
+			// console.log($('.read-btn').attr('data-vip'));
+			$('.read-btn').attr('href',$('.read-btn').attr('data-vip') == 0 ? `./read.html?bid=${chapters[0].b_id}&cid=${chapters[0].id}` :'javascript:alert("仅限VIP阅读哦！");')
+			$('.catalog-list h5').text(`正文·共${chapters.length}章`)
+			$('.nav-title p').text(`目录(${chapters.length}章)`)
+			var chapter_list = "";
+			try{
+				$.each(chapters,(i,value)=>{
+					chapter_list += `<li><a href="./read.html?bid=${book_id}&cid=${value.id}">第${i+1}章 ${value.title}</a></li>`
+				})
+			}catch{
+				var chapters = data.data.volume[1].chapter;
+				$.each(chapters,(i,value)=>{
+					chapter_list += `<li><a href="./read.html?bid=${book_id}&cid=${value.id}">第${i+1}章 ${value.title}</a></li>`
+				})
+			}
+			// Tránh Các Chương Trống
+			chapter_list += chapters.length % 3==1? '<li></li><li></li>':chapters.length % 3==2 ? '<li></li>' :'';
+			$('.catalog-list ul').html(chapter_list)
+			setMask('none')
+		});
+	}
+
+	$('.unfold').click(function(){
+		if ($(this).text() == "Thu Gọn") {
+			$(this).text("Xem Thêm")
+			$('.intro').css('display','-webkit-box')
+		}else{
+			$(this).text("Thu Gọn")
+			$('.intro').css('display','block')
+		}
+	})
 // 更改主样式颜色
 // $(":root").css('--main-color','pink')

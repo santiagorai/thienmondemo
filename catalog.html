@@ -155,11 +155,12 @@
                 </p>
 
                 <p class="intro">
+					Giới Thiệu :
                 女主：我有三千外挂（大佬脸）羡慕嫉妒众路人：可惜那都不是你的是男主的（小人得志脸）女主：我有三千男主（大佬脸）羡慕嫉妒众路人：可惜都是你的任务对象你又带不走（小人得志脸）女主：我有主神三千宠爱众：打扰了，告辞。女主：谈恋爱吗？死去活来的内种。既精分又切片蛇精病属性男主X撩完就跑真刺激皮皮虾属性女主本文又可以叫《拿着男主剧本却为何刷着苦情反派剧情》《我送一个快递就崩一个位面》《大佬追妻之我把自己坑惨了的那些年》《论一个深井冰的自我修养》欢迎补充(ಡωಡ)
                 </p>
                 <div class="btn">
                     <a class="read-btn" href="#" target="_self">Đọc Chương Đầu</a>
-                    <a class="add-btn" href="javascript:alert('成功加入书架')" >Thêm Vào Danh Sách</a>
+                    <a class="add-btn" href="javascript:alert('Đã Thêm Thành Công Vào Tủ Sách')" >Thêm Vào Danh Sách</a>
                 </div>
             </div>
 		</section>
@@ -213,14 +214,14 @@
 			</ul>
 		</section>
 	</div>
-	<!-- Loading page -->
+	<!-- Loading page 
 	<div class="mask">
 		<div class="spinner">
 		  <div class="bounce1"></div>
 		  <div class="bounce2"></div>
 		  <div class="bounce3"></div>
 		</div>
-	</div>
+	</div>-->
 
 	<!-- 公共底部 -->
 	<footer class="box-center">
@@ -236,62 +237,5 @@
 		</div>
 	</footer>
 	<script type="text/javascript" src="./js/common.js"></script>
-	<script>
-	var book_id = getUrlParam('bookid');
-	$('.bookName').attr('href',"catalog.html?bookid="+book_id);
-	if (book_id != null) {
-		// 获取书籍信息
-		setMask()
-		$.get(`${URLPROXY}http://admin.iqingtun.com/web/book/index?id=${book_id}&u_id=`,(data)=>{
-			console.log(data);
-			var content = data['data'].chapter_content
-			$('.book-img img').attr('src','http://'+data['data'].front_cover);
-			$('.book-info p.intro').text(content.replace(/(<\w>|<\/\w>)/g,''));
-			$('.book-info h3').text(data['data'].title);
-			$('.book-info p.book-author').text(data['data'].u_name);
-			$('.book-info span.state').text(data['data'].update_status)
-			$('.book-info span.class').text(data['data'].c_title)
-			$('.book-info .book-mess span.number').text(data['data'].char_num)
-			$('.book-info .book-mess span.hits').text(data['data'].hits)
-			$('.process a.className').text(data['data'].c_title)
-			$('.process a.bookName').text(data['data'].title)
-			$('.book-info .btn a.read-btn').text(data['data'].is_vip == 0 ? '免费阅读' :'仅限VIP阅读').attr('data-vip',data['data'].is_vip)
-			$('.catalog-list .uprocess').text(data['data'].chapter_title + "  "+ data['data'].last_update_chapter_time).attr('href',`./read.html?bid=${book_id}&cid=${data['data'].last_update_chapter_id}`)
-		});
-		// 获取目录
-		$.get(`${URLPROXY}http://admin.iqingtun.com/web/book/directory?id=${book_id}&order=0`,(data)=>{
-			var chapters = data.data.volume[0].chapter;
-			// console.log($('.read-btn').attr('data-vip'));
-			$('.read-btn').attr('href',$('.read-btn').attr('data-vip') == 0 ? `./read.html?bid=${chapters[0].b_id}&cid=${chapters[0].id}` :'javascript:alert("仅限VIP阅读哦！");')
-			$('.catalog-list h5').text(`正文·共${chapters.length}章`)
-			$('.nav-title p').text(`目录(${chapters.length}章)`)
-			var chapter_list = "";
-			try{
-				$.each(chapters,(i,value)=>{
-					chapter_list += `<li><a href="./read.html?bid=${book_id}&cid=${value.id}">第${i+1}章 ${value.title}</a></li>`
-				})
-			}catch{
-				var chapters = data.data.volume[1].chapter;
-				$.each(chapters,(i,value)=>{
-					chapter_list += `<li><a href="./read.html?bid=${book_id}&cid=${value.id}">第${i+1}章 ${value.title}</a></li>`
-				})
-			}
-			// 避免出现空白横条
-			chapter_list += chapters.length % 3==1? '<li></li><li></li>':chapters.length % 3==2 ? '<li></li>' :'';
-			$('.catalog-list ul').html(chapter_list)
-			setMask('none')
-		});
-	}
-
-	$('.unfold').click(function(){
-		if ($(this).text() == "收起") {
-			$(this).text("展开")
-			$('.intro').css('display','-webkit-box')
-		}else{
-			$(this).text("收起")
-			$('.intro').css('display','block')
-		}
-	})
-	</script>
 </body>
 </html>
