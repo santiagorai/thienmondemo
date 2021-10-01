@@ -6,7 +6,7 @@
 	width: 40%;
 }
 .err-left img{
-	width: 100%;
+	width: 80%;
 }
 .err-right{
 	float: right;
@@ -17,7 +17,7 @@
 	/*font-weight: bold;*/
 }
 .err-right p{
-	margin: 20px 0px;
+	margin: 10px 0px;
 }
 .err-right p em{
 	color: #999;
